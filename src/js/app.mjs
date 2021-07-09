@@ -1,7 +1,6 @@
-import AnimatedChatWidget from './AnimatedChatWidget.mjs';
+import ChatWidget from './ChatWidget.mjs';
+//import OpenChatButton from './OpenChatButton.mjs';
 
-const newChatWidget = new AnimatedChatWidget();
-newChatWidget.bindToDOM(document.getElementById('main-container'));
-newChatWidget.init();
-
-console.log('appjs');
+const newChatWidget = new ChatWidget();
+newChatWidget.bindToDom(document.getElementById('main-container'));
+newChatWidget.openButtonInit();
