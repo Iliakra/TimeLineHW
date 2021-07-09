@@ -1,6 +1,8 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable indent */
+/* eslint-disable linebreak-style */
 export default class ChatWidget {
-
     constructor() {
         this.container = null;
         this.buttonElement = null;
@@ -49,7 +51,6 @@ export default class ChatWidget {
         textareaContainer.appendChild(chatWindowTextarea);
         textareaContainer.appendChild(submitButton);
         this.chatWindowElement.appendChild(textareaContainer);
-
 
         const chatWindowCloseButton = document.createElement('button');
         chatWindowCloseButton.classList.add('chat-window-close-button');
