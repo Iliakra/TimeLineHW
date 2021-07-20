@@ -1,2 +1,2 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/rlpa7pcggg6xrjxl?svg=true)](https://ci.appveyor.com/project/Ilya/animation-chat-widget)
-https://iliakra.github.io/Animation-chat-widget/
+[![Build status](https://ci.appveyor.com/api/projects/status/f8rxtjk76555vo3d?svg=true)](https://ci.appveyor.com/project/Ilya/timelinehw)
+https://iliakra.github.io/TimeLineHW/
