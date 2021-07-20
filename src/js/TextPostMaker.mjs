@@ -4,7 +4,9 @@
 /* eslint-disable indent */
 /* eslint-disable linebreak-style */
 import formatDate from './formatDate.mjs';
-import customCoordsValidity from './customCoordsValidity.mjs';
+import customCoordsValidity from './customCoordsValidity.js';
+
+const input = document.getElementsByClassName('timeline-input')[0];
 
 export default class TextPostMaker {
     constructor(value) {
@@ -25,7 +27,7 @@ export default class TextPostMaker {
 
         const coordsContent = document.createElement('p');
         coordsContent.classList.add('coords-content');
-        coordsContent.textContent = `${this.longitude}, ${this.latitude}`;
+        coordsContent.textContent = `[${this.longitude}, ${this.latitude}]`;
 
         const dateContent = document.createElement('p');
         dateContent.classList.add('date-content');
@@ -40,6 +42,7 @@ export default class TextPostMaker {
         this.container.appendChild(textPostContainer);
 
         this.container.scrollTo(0, this.container.scrollHeight);
+        input.value = " ";
     }
 
     geoLocation() {
@@ -56,6 +59,7 @@ export default class TextPostMaker {
     }
 
     customGeoLocation() {
+        input.disabled = true;
         const positionErrorContainer = document.createElement('div');
         positionErrorContainer.classList.add('position-error-container');
         this.positionErrorElement = positionErrorContainer;
@@ -98,6 +102,7 @@ export default class TextPostMaker {
     }
 
     closeHandler() {
+        input.disabled = false;
         this.positionErrorElement.remove();
     }
 
@@ -106,8 +111,11 @@ export default class TextPostMaker {
         const customCoordsValue = customCoordsInput.value;
         const validity = customCoordsValidity(customCoordsValue);
         if (validity) {
-            //this.value = customCoordsValue;
+            let customCoordsArray = validity.split(',');
+            this.longitude = customCoordsArray[0];
+            this.latitude = customCoordsArray[1];
             this.build();
+            input.disabled = false;
             this.closeHandler();
         } else {
             alert('Неверно введены координаты!');
