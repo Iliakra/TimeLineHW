@@ -4,6 +4,7 @@
 /* eslint-disable indent */
 /* eslint-disable linebreak-style */
 import formatDate from './formatDate.mjs';
+import customCoordsValidity from './customCoordsValidity.mjs';
 
 export default class TextPostMaker {
     constructor(value) {
@@ -103,7 +104,7 @@ export default class TextPostMaker {
     addingCustomCoords() {
         const customCoordsInput = document.getElementsByClassName('custom-coords-input')[0];
         const customCoordsValue = customCoordsInput.value;
-        const validity = this.customCoordsValidity(customCoordsValue);
+        const validity = customCoordsValidity(customCoordsValue);
         if (validity) {
             //this.value = customCoordsValue;
             this.build();
@@ -113,13 +114,6 @@ export default class TextPostMaker {
         }
     }
 
-    customCoordsValidity(value) {
-        const result = value.match(/^\[?\d+\.\d+,\s?\d+\.\d+\]?$/);
-        if (result === null) {
-            return false;
-        } 
-            return true;
-    }
 
     bindToDom(container) {
         this.container = container;
